@@ -1,38 +1,40 @@
-# sistem-pentru-securitatea-unei-case
-Acest proiect implementează un sistem de alarmă inteligent pentru o casă cu două camere. Sistemul este capabil să detecteze activitatea din interior și să reacționeze în funcție de modul de securitate setat de utilizator.
+# Digital Home Guard
 
-Funcționalități
+This project implements a smart alarm system for a two-room house. The system is designed to detect activity inside the house and react according to the security mode selected by the user.
 
-Trei moduri de operare:
-Inactiv – sistemul ignoră senzorii.
-Acasă – monitorizează ușa și geamurile.
-Plecat – monitorizează toți senzorii.
+## Features
 
-Senzori pentru:
-Mișcare în fiecare cameră.
-Deschidere geam în fiecare cameră.
-Deschidere ușă principală.
-Cod PIN de 4 cifre pentru schimbarea modului.
-Întârziere de 15 secunde la activarea modului „Plecat” pentru a permite utilizatorului să părăsească locuința.
-Sistem de alarmă sonoră în cazul detectării unei intruziuni.
+### Operating Modes
+1.  **Inactive:** The system ignores all sensors.
+2.  **Home:** Monitors only the main door and windows (perimeter protection).
+3.  **Away:** Monitors all sensors, including motion inside.
 
-Cum funcționează?
-La pornire, sistemul este inactiv.
-Introduci codul PIN pentru a schimba modul.
-Dacă alegi modul Acasă, alarma se declanșează doar dacă se deschide un geam sau ușa principală.
-Dacă alegi modul Plecat, alarma monitorizează toți senzorii și se declanșează la orice activitate suspectă.
-Dacă vrei să dezactivezi sistemul, introduci codul PIN și selectezi modul Inactiv.
+### System Capabilities
+* **Sensors:**
+    * Motion detection in each room.
+    * Window opening detection in each room.
+    * Main door sensor.
+* **Security:** Uses a **4-digit PIN** code to change security modes.
+* **Exit Delay:** A 15-second timer allows the user to leave the house after activating "Away" mode.
+* **Alert:** Triggers a sound alarm when an intrusion is detected.
 
-Implementare
-Dezvoltat folosind Logisim.
-Utilizează circuit digital cu:
-Numărător de 15 secunde pentru întârziere.
-Registru pentru memorarea codului PIN.
-Comparator pe 4 biți pentru validarea codului.
-Multiplexor pentru afișare pe Seven Segment Display.
-Circuit 7447 pentru afișarea numerelor hexadecimale.
+## How It Works
+1.  **Startup:** The system starts in the **Inactive** state.
+2.  **Activation:** Enter the PIN code to switch modes.
+3.  **Home Mode:** The alarm triggers only if a window or the main door is opened.
+4.  **Away Mode:** The alarm monitors all sensors (including motion) and triggers on any suspicious activity.
+5.  **Deactivation:** To turn off the alarm, enter the PIN code and select the **Inactive** mode.
 
-Posibile îmbunătățiri
-Utilizarea unei memorii RAM pentru stocarea codului PIN în locul registrelor.
-Adăugarea unei conexiuni wireless pentru control de la distanță.
-Integrarea unui sistem de notificare pe telefon.
+## Implementation Details
+The project is developed using **Logisim**. It uses a digital circuit comprised of:
+
+* **15-second Counter:** For the exit delay timer.
+* **Register:** Stores the correct PIN code.
+* **4-bit Comparator:** Validates the entered PIN against the stored code.
+* **Multiplexer:** Controls the output for the display.
+* **7447 Circuit:** Drivers for the Seven Segment Display (Hexadecimal numbers).
+
+## Future Improvements
+* Replace registers with **RAM memory** for storing the PIN.
+* Add a **wireless connection** for remote control.
+* Integrate a **mobile notification system**.
